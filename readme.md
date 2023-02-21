@@ -90,7 +90,21 @@ git init
 pre-commit install
 ```
 
-7. To run all the tests cases:
+6. Add alll the files to staging area
+```bash
+git add .
+```
+
+8. To run all the tests locally:
 ```bash
 pre-commit run
 ```
+
+9. To run all the linting, cfn-lint, cfn-nfg locally and the unit tests and deploy testing on github actions
+```
+git add .
+git commit -m "Test"
+git push -u origin main
+```
+![In Terminal](terminal.jpg)
+![Github Action](action.jpg)
