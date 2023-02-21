@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+  QSLint:
+    Exclusions: [W9002, W9003, W9004, W9006]
+Description: "Deploys the metrics-server into an existing kubernetes cluster (qs-qwertyuiop)"
+Parameters:
+  EksClusterName:
+    Type: String
+Resources:
+  MetricsServer:
+    Type: "AWSQS::Kubernetes::Resource"
+    Metadata: { cfn-lint: { config: { ignore_checks: [ E3012, E3001 ] } } }
+    Properties:
+      ClusterName: !Ref EksClusterName
+      Namespace: kube-system
+      Url: https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.1/components.yaml
+Outputs:
+  MetricsServer:
+    Value: !Ref MetricsServer

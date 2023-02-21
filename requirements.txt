@@ -1,0 +1,4 @@
+pre-commit==2.20.0
+cloud-radar==0.6.0
+pytest
+mypy
