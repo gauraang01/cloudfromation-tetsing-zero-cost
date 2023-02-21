@@ -23,9 +23,7 @@ In this case, pre-commit can be configured to run all the necessary testing tool
 before the code is committed to the repository. This helps to ensure that the CloudFormation templates are properly tested and adhere to best practices,
 which in turn reduces the likelihood of failures in the production environment.
 
-By using pre-commit hooks, developers can ensure that their code is thoroughly tested before it is committed to the repository,
-which can reduce the risk of issues arising in the production environment. This approach also helps to promote consistency across
-the codebase and ensures that all CloudFormation templates are tested in the same way, regardless of who wrote them.
+We also use github actions to imrpove the efficiency and perform unit testing and LocalStack deployment on the github actions
 
 ## Phases of the proposed solution:
 ### Phase-1
@@ -53,7 +51,7 @@ Deploying to localstack
 ### Phase-5
 Improving efficiency by using Github action
 This phase includes integrating the testing pipeline with Github actions. This will automate the testing process,
-and the templates will be tested automatically whenever a new commit is pushed to the repository.
+and the templates will be tested automatically whenever a new commit is pushed to the repository. This will mainly perform unit testing, security testing, and Localstack deployment testing
 
 # Directory structure
 
@@ -64,6 +62,8 @@ mkdir tests/unit
 * Templates directory will store cloud formation templates
 * Tests/unit directory will store unit tests
 
+# Important
+You will have to write uni tests based on your own templates and then add them to tests/unit
 
 # Setup
 1. Create a virtual environment and activate it using the following commands
@@ -106,5 +106,8 @@ git add .
 git commit -m "Test"
 git push -u origin main
 ```
-![In Terminal](terminal.jpg)
-![Github Action](action.jpg)
+### Terminal output
+![In Terminal](terminal.png)
+
+### Github Action output
+![Github Action](action.png)
